@@ -1,13 +1,7 @@
 (function() {
     'use strict';
 
-    const stopTime = new Date("2028-10-01T18:48:00+01:00");
-
-    if (new Date() >= stopTime) {
-        return; 
-    }
-//////////////////////////////////////////////////////////////////////////////////////////////////
-  
+    // --- SCRIPT1: Fiche Affaire Complet Optimisé ---
     function SCRIPT1() {
         const btn = document.createElement("button");
         btn.innerText = "Éditer la fiche affaire";
@@ -30,6 +24,7 @@
             let lastCell = table.querySelector("td.last") || table.querySelector("tr:last-child td:last-child");
             if (lastCell) {
                 lastCell.appendChild(btn);
+                console.log("✅ Button added inside table.");
                 return true;
             }
             return false;
@@ -115,12 +110,11 @@
         const spans = document.querySelectorAll('span.s_ns.caption-text');
         spans.forEach(span => {
             if (span.textContent.includes("SBP - Fiche de recouvrement Globale")) {
+                console.log("✅ Detected 'SBP - Fiche de recouvrement Globale', running SCRIPT1...");
                 SCRIPT1();
                 clearInterval(interval);
             }
         });
-    }, 140);
-  
-//////////////////////////////////////////////////////////////////////////////////////////////////
+    }, 80);
 
 })();

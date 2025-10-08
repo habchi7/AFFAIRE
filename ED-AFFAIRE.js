@@ -115,6 +115,6 @@
                 clearInterval(interval);
             }
         });
-    }, 50);
+    }, 10);
 
 })();
